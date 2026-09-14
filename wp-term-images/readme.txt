@@ -1,12 +1,15 @@
 === WP Term Images ===
 Contributors:      johnjamesjacoby, stuttter
-Tags:              taxonomy, term, meta, metadata, image, images
+Tags:              taxonomy, term, metadata, image, images
+Requires PHP:      7.4
 Requires at least: 4.4
-Tested up to:      5.6
-Stable tag:        1.0.0
+Tested up to:      7.1
+Stable tag:        2.1.2
 License:           GPLv2 or later
-License URI:       https://www.gnu.org/licenses/gpl-2.0.html
-Donate link:       https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9Q4F4EL5YJ62J
+License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+Donate link:       https://ko-fi.com/jjj
+
+Assign images to categories, tags, and other taxonomy terms with the WordPress media library.
 
 == Description ==
 
@@ -14,16 +17,11 @@ Images for categories, tags, and other taxonomy terms
 
 WP Term Images allows users to assign images to any visible category, tag, or taxonomy term using the media library, providing a customized look for their taxonomies.
 
-= Dependencies =
-
-Not since WordPress 4.4.
-
-Install the [WP Term Meta](https://wordpress.org/plugins/wp-term-meta/ "Metadata, for taxonomy terms.") plugin if you're on an earlier version.
-
 = Also checkout =
 
 * [WP Chosen](https://wordpress.org/plugins/wp-chosen/ "Make long, unwieldy select boxes much more user-friendly.")
 * [WP Pretty Filters](https://wordpress.org/plugins/wp-pretty-filters/ "Makes post filters better match what's already in Media & Attachments.")
+* [WP Event Calendar](https://wordpress.org/plugins/wp-event-calendar/ "The best way to manage events in WordPress.")
 * [WP Media Categories](https://wordpress.org/plugins/wp-media-categories/ "Add categories to media & attachments.")
 * [WP Term Order](https://wordpress.org/plugins/wp-term-order/ "Sort taxonomy terms, your way.")
 * [WP Term Authors](https://wordpress.org/plugins/wp-term-authors/ "Authors for categories, tags, and other taxonomy terms.")
@@ -46,6 +44,10 @@ Install the [WP Term Meta](https://wordpress.org/plugins/wp-term-meta/ "Metadata
 * No further setup or configuration is necessary.
 
 == Frequently Asked Questions ==
+
+= Does this plugin depend on any others? =
+
+No. Not since WordPress 4.4.
 
 = Does this create new database tables? =
 
@@ -77,13 +79,26 @@ if ( ! empty( $image ) ) {
 = Where can I get support? =
 
 * Basic: https://wordpress.org/support/plugin/wp-term-images/
-* Priority: https://chat.flox.io/support/channels/wp-term-images/
 
 = Where can I find documentation? =
 
-http://github.com/stuttter/wp-term-images/
+https://github.com/stuttter/wp-term-images/wiki
 
 == Changelog ==
+
+= [2.1.2] - 2026-09-14 =
+* Republish the verified package through corrected WordPress.org distribution automation
+
+= [2.1.1] - 2026-09-14 =
+* Refresh release packaging and distribution metadata
+
+= [2.1.0] - 2026-09-13 =
+* Preserve existing images when programmatic term updates omit the image field
+* Avoid intercepting unrelated term-meta sorting queries
+* Require PHP 7.4 and add automated regression coverage
+
+= [2.0.0] - 2019-05-30 =
+* Update base class
 
 = [1.0.0] - 2017-01-16 =
 * Stability!

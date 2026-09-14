@@ -17,17 +17,17 @@ if ( ! class_exists( 'WP_Term_Images' ) ) :
  *
  * @since 0.1.0
  */
-final class WP_Term_Images extends WP_Term_Meta_UI {
+final class WP_Term_Images extends JJJ\WP\Term\Meta\UI {
 
 	/**
 	 * @var string Plugin version
 	 */
-	public $version = '1.0.0';
+	public $version = '2.1.2';
 
 	/**
 	 * @var string Database version
 	 */
-	public $db_version = 201701160001;
+	public $db_version = 201905300001;
 
 	/**
 	 * @var string Metadata key
@@ -100,7 +100,7 @@ final class WP_Term_Images extends WP_Term_Meta_UI {
 	}
 
 	/**
-	 * Return the formatted output for the colomn row
+	 * Return the formatted output for the column row
 	 *
 	 * @since 0.1.2
 	 *
@@ -153,13 +153,10 @@ final class WP_Term_Images extends WP_Term_Meta_UI {
 		) );
 
 		// Get the meta value
-		$value  = $this->get_meta( $term_id );
-		$hidden = empty( $value )
-			? ' style="display: none;"'
-			: ''; ?>
+		$value = $this->get_meta( $term_id ); ?>
 
 		<div>
-			<img id="wp-term-images-photo" src="<?php echo esc_url( wp_get_attachment_image_url( $value, 'full' ) ); ?>"<?php echo $hidden; ?> />
+			<img id="wp-term-images-photo" src="<?php echo esc_url( wp_get_attachment_image_url( $value, 'full' ) ); ?>"<?php if ( empty( $value ) ) : ?> style="display: none;"<?php endif; ?> />
 			<input type="text" style="display: none;" name="term-<?php echo esc_attr( $this->meta_key ); ?>" id="term-<?php echo esc_attr( $this->meta_key ); ?>" value="<?php echo esc_attr( $value ); ?>" />
 		</div>
 
@@ -167,7 +164,7 @@ final class WP_Term_Images extends WP_Term_Meta_UI {
 			<?php esc_html_e( 'Choose Image', 'wp-term-images' ); ?>
 		</a>
 
-		<a href="<?php echo esc_url( $remove_url ); ?>" class="button wp-term-images-remove"<?php echo $hidden; ?>>
+		<a href="<?php echo esc_url( $remove_url ); ?>" class="button wp-term-images-remove"<?php if ( empty( $value ) ) : ?> style="display: none;"<?php endif; ?>>
 			<?php esc_html_e( 'Remove', 'wp-term-images' ); ?>
 		</a>
 
