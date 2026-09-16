@@ -4,7 +4,7 @@ Tags:              taxonomy, term, metadata, image, images
 Requires PHP:      7.4
 Requires at least: 6.4
 Tested up to:      7.1
-Stable tag:        2.1.3
+Stable tag:        2.2.0
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://ko-fi.com/jjj
@@ -76,6 +76,21 @@ if ( ! empty( $image ) ) {
 }
 `
 
+The attachment ID is also exposed as the term's `image` metadata in the
+WordPress REST API. To keep it out of REST responses, return `false` from the
+`wp_term_image_show_in_rest` filter.
+
+= Can I limit the taxonomies that use term images? =
+
+Yes. Filter the visible taxonomies after discovery and return only the ones
+that should use the image interface:
+
+`
+add_filter( 'wp_term_image_allowed_taxonomies', function( $taxonomies ) {
+    return array( 'category', 'post_tag' );
+} );
+`
+
 = Where can I get support? =
 
 * Basic: https://wordpress.org/support/plugin/wp-term-images/
@@ -85,6 +100,11 @@ if ( ! empty( $image ) ) {
 https://github.com/stuttter/wp-term-images/wiki
 
 == Changelog ==
+
+= [2.2.0] - 2026-09-16 =
+* Expose image attachment IDs through term metadata in the WordPress REST API
+* Allow sites to restrict the taxonomies that use the term-image interface
+* Add enforceable WordPress and PHP compatibility coding standards
 
 = [2.1.3] - 2026-09-16 =
 * Require WordPress 6.4 or newer
